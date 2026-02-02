@@ -105,9 +105,8 @@ function createServer() {
   });
 
   app.get('/expenses', (req, res) => {
-    const { userId, category, from, to } = req.query;
+    const { userId, category, from, to, categories } = req.query;
     let result = [...expenses];
-    // let result = expenses;
 
     if (userId !== undefined) {
       result = result.filter((e) => String(e.userId) === String(userId));
@@ -115,6 +114,12 @@ function createServer() {
 
     if (category !== undefined) {
       result = result.filter((e) => e.category === category);
+    }
+
+    if (categories !== undefined) {
+      const categoryList = categories.split(',');
+
+      result = result.filter((e) => categoryList.includes(e.category));
     }
 
     if (from !== undefined) {
