@@ -188,28 +188,6 @@ function createServer() {
     res.status(200).send(expense);
   });
 
-  // app.get('/expenses/:userId', (req, res) => {
-  //   const { id } = req.params;
-
-  //   if (!id) {
-  //     res.status(400).send('Bad request');
-
-  //     return;
-  //   }
-
-  //   const user = users.find((u) => u.id === +id);
-
-  //   if (!user) {
-  //     res.status(404).send('Not found');
-
-  //     return;
-  //   }
-
-  //   const userExpenses = expenses.filter((exp) => exp.userId === +id);
-
-  //   res.status(200).send(userExpenses);
-  // });
-
   app.delete('/expenses/:id', (req, res) => {
     const { id } = req.params;
 
