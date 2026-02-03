@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 'use strict';
 
 const usersRouter = require('./routes/users.routes.js');

@@ -3,10 +3,9 @@ const findExpense = (expenses, id) => {
 };
 
 const filterExpense = (expenses, id) => {
-  // eslint-disable-next-line no-param-reassign
-  expenses = expenses.filter((exp) => exp.id !== +id);
+  const result = expenses.filter((exp) => exp.id !== +id);
 
-  return expenses;
+  return result;
 };
 
 module.exports = {

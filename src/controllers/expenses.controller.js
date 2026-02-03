@@ -6,25 +6,25 @@ const getAllExpenses = (expenses) => (req, res) => {
   let result = [...expenses];
 
   if (userId !== undefined) {
-    result = result.filter((e) => String(e.userId) === String(userId));
+    result = result.filter((exp) => String(exp.userId) === String(userId));
   }
 
   if (category !== undefined) {
-    result = result.filter((e) => e.category === category);
+    result = result.filter((exp) => exp.category === category);
   }
 
   if (categories !== undefined) {
     const categoryList = categories.split(',');
 
-    result = result.filter((e) => categoryList.includes(e.category));
+    result = result.filter((exp) => categoryList.includes(exp.category));
   }
 
   if (from !== undefined) {
-    result = result.filter((e) => new Date(e.spentAt) >= new Date(from));
+    result = result.filter((exp) => new Date(exp.spentAt) >= new Date(from));
   }
 
   if (to !== undefined) {
-    result = result.filter((e) => new Date(e.spentAt) <= new Date(to));
+    result = result.filter((exp) => new Date(exp.spentAt) <= new Date(to));
   }
 
   res.status(200).send(result);

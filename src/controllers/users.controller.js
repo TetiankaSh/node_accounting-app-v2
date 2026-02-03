@@ -54,7 +54,7 @@ const getUserById = (users) => (req, res) => {
 
 const deleteUser = (users) => (req, res) => {
   const { id } = req.params;
-  const index = users.findIndex((u) => u.id === +id);
+  const index = users.findIndex((user) => user.id === +id);
 
   if (index === -1) {
     return res.status(404).send('Not found');
